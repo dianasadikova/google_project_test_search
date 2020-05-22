@@ -61,6 +61,13 @@
         </dependency>
 
         <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-junit5</artifactId>
             <version>${allure.version}</version>
@@ -108,7 +115,6 @@
                 </configuration>
             </plugin>
 
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-site-plugin</artifactId>
@@ -123,7 +129,7 @@
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                         -Dcucumber.options="--plugin io.qameta.allure.cucumber4jvm.AllureCucumber4Jvm"
-                        </argLine>
+                    </argLine>
                 </configuration>
                 <dependencies>
                     <dependency>
@@ -140,10 +146,32 @@
                 <version>2.10.0</version>
                 <configuration>
                     <reportVersion>${allure.version}</reportVersion>
-<!--                    <allureDownloadUrl>https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/${allure.version}/allure-commandline-${allure.version}.zip/</allureDownloadUrl>-->
+                    <!--                    <allureDownloadUrl>https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/${allure.version}/allure-commandline-${allure.version}.zip/</allureDownloadUrl>-->
                 </configuration>
             </plugin>
         </plugins>
     </build>
 
+<!--    <profiles>-->
+<!--        <profile>-->
+<!--            <id>chrome</id>-->
+<!--            <build>-->
+<!--                <plugins>-->
+<!--                    <plugin>-->
+<!--                        <groupId>org.apache.maven.plugins</groupId>-->
+<!--                        <artifactId>maven-surefire-plugin</artifactId>-->
+<!--                        <configuration>-->
+<!--                            <excludes>-->
+<!--                                <exclude>**/classic_page_object/*</exclude>-->
+<!--                            </excludes>-->
+<!--                            <systemPropertyVariables>-->
+<!--                                <selenide.browser>chrome</selenide.browser>-->
+<!--                                <selenide.headless>true</selenide.headless>-->
+<!--                            </systemPropertyVariables>-->
+<!--                        </configuration>-->
+<!--                    </plugin>-->
+<!--                </plugins>-->
+<!--            </build>-->
+<!--        </profile>-->
+<!--    </profiles>-->
 </project>
